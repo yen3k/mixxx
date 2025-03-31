@@ -1,7 +1,8 @@
 {
   inputs = {
     utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+
   };
   outputs = { self, nixpkgs, utils }: utils.lib.eachDefaultSystem (system:
     let
@@ -53,7 +54,6 @@
           libxkbcommon
           sqlite
           gtest
-          clang-tools
           mp4v2
           vulkan-loader
           xorg.libX11
@@ -74,10 +74,12 @@
           pre-commit
           nodejs
           rustup
+          stdenv.cc.cc
         ];
         shellHook = ''
           pre-commit install
           pre-commit install -t pre-push
+          export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"
         '';
       };
     }
