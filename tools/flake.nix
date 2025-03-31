@@ -12,52 +12,15 @@
           qtshadertools
           qtsvg
           qtdeclarative
-
-
-          #qt3d
-          #qtcharts
-          #qtconnectivity
-          #qtdatavis3d
-          #qtdeclarative
-          #qtdoc
-          #qtgraphs
-          #qtgrpc
-          #qthttpserver
-          #qtimageformats
-          #qtlanguageserver
-          #qtlocation
-          #qtlottie
-          #qtmultimedia
-          #qtmqtt
-          #qtnetworkauth
-          #qtpositioning
-          #qtsensors
-          #qtserialbus
-          #qtserialport
-          #qtspeech
-          #qtquick3d
-          #qtquick3dphysics
-          #qtquickeffectmaker
-          #qtquicktimeline
-          #qtremoteobjects
-          #qtscxml
-          #qttools
-          #qttranslations
-          #qtvirtualkeyboard
-          #qtwebchannel
-          #qtwebengine
-          #qtwebsockets
-          #qtwebview
         ];
     in
     {
       devShell = pkgs.mkShell {
         buildInputs = with pkgs; [
-          git
-
           # Building Mixxx
           qt6Env
-          #kdePackages.qtkeychain
+          kdePackages.qtkeychain
+
           cmake
           chromaprint
           glib
