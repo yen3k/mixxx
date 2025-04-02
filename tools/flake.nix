@@ -78,7 +78,7 @@
           pre-commit install
           pre-commit install -t pre-push
           # Needed for clang-format pre-commit because it downloads and executes its own clang-format elf-binary
-          export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"
+          export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:$LD_LIBRARY_PATH"
         '';
       };
     }
